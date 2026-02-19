@@ -270,7 +270,7 @@ Atlaxis/
 git clone https://github.com/yourusername/Atlaxis.git
 cd atlaxis
 pip install -r requirements.txt
-streamlit run app.py
+streamlit run appis_full.py
 ```
 
 ---
