@@ -173,28 +173,6 @@ In para-athletes, injury risk primarily arises from:
 1 = Elevated Risk
 ```
 
----
-
-## 4️⃣ Optional Temporal Modeling (Advanced Layer)
-
-For stronger progression modeling:
-
-### Model
-
-Lightweight LSTM
-
-### Input
-
-Last 20 time windows
-
-### Output
-
-Fatigue probability in next interval
-
-This captures dynamic progression patterns beyond static windows.
-
----
-
 # Unified Readiness Score
 
 All model outputs are normalized:
