@@ -68,7 +68,7 @@ with st.sidebar:
 with st.sidebar:
 
     st.markdown("""
-        <h2 style='text-align: center; color: #ff4b4b;'>⚡ ATLAXIS LAB</h2>
+        <h2 style='text-align: center; color: #ff4b4b;'> ATLAXIS LAB</h2>
         <hr style="margin-top: 0px;">
     """, unsafe_allow_html=True)
 
@@ -147,9 +147,9 @@ else:
 
 st.title("Atlaxis — Adaptive Prosthetic Intelligence")
 
-colA, colB = st.columns([1,1])
+left, center, right = st.columns([1, 2, 1])  # Middle column wider
 
-with colA:
+with center:
     fig = go.Figure(go.Indicator(
         mode="gauge+number+delta",
         value=readiness_score,
@@ -164,8 +164,8 @@ with colA:
             ]
         }
     ))
-    st.plotly_chart(fig, use_container_width=True)
 
+    st.plotly_chart(fig, use_container_width=True)
 
 
 # MODULE CARDS
@@ -190,7 +190,7 @@ with col3:
 
 # LIVE MONITORING
 
-st.subheader("📈 Live Biomechanics Stream")
+st.subheader("Live Biomechanics Stream")
 
 metric = st.selectbox("Select Metric", df.columns)
 
@@ -222,7 +222,13 @@ fig3.update_yaxes(
     tickmode='array',
     tickvals=[20, 40, 60, 80]
 )
-fig3.add_trace(go.Scatter(x=X[:,0], y=X[:,1], mode='markers', opacity=0.4))
+fig3.add_trace(go.Scatter(
+    x=X[:,0],
+    y=X[:,1],
+    mode='markers',
+    opacity=0.4,
+    name="Past Scores"
+))
 fig3.add_trace(go.Scatter(x=current_point[:,0], y=current_point[:,1],
                           mode='markers',
                           marker=dict(size=14,color=point_color),
